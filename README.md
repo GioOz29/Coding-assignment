@@ -4,13 +4,14 @@ This Python application interacts with JSONPlaceholder API, fetching and display
 
 ## Contents
 
-- Prerequisites
-- Installation
-- Running the application
-- Running the test
-- Checking for Type Errors (Mypy)
-- Vewing the test coverage report
-- GitHub Actions workflow
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the application](#running-the-application)
+- [Running the tests](#running-the-application)
+- [Checking for Type Errors (Mypy)](#checking-for-type-errors-mypy)
+- [Viewing the Test Coverage Report](#viewing-the-test-coverage-report)
+- [GitHub Actions Workflow](#github-actions-workflow)
+- [Viewing Artifacts and Coverage](#viewing-artifacts-and-coverage)
 
 ## Prerequisites
 
@@ -19,7 +20,7 @@ Before running the application, make sure you have installed:
 * pip (python package manager)
 * Git
 
-## Installations
+## Installation
 
 Follow these steps to set up the project:
 
@@ -57,7 +58,7 @@ To start the application interactions and interact with JSONPlaceholder API to f
 python AppAPI.py
 ```
 
-## Running the test
+## Running the tests
 
 The application uses **pytest** and **requests-mock** to run the tests. To execute all the test from terminal, run:
 ```bash
@@ -69,7 +70,7 @@ To display the code coverage in the terminal, run:
 pytest --cov=AppAPI --cov-report=term-missing
 ```
 
-## Checking for _Type Errors_ with Mypy
+## Checking for Type Errors (Mypy)
 
 To check if the code follows type savety rules and highlighting any type errors, run Mypy on the project with the following command:
 ```bash
@@ -81,7 +82,7 @@ If your environment doesn't have Mypy already installed, run:
 pip install mypy
 ```
 
-## Vewing the test coverage report
+## Viewing the Test Coverage Report
 
 The report will show the test coverage for each file and line of code. To generate a detailed coverage report and view it in the browser:
 1. Run tests and generate an HTML report:

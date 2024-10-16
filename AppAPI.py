@@ -15,7 +15,7 @@ class APIClient:
             response.raise_for_status() # This will raise HTTPError on 404 and other non-2xx codes
             return [] # MyPy check for errors
 
-# Post class representing a blog postfrom the API
+# Post class representing a blog post from the API
 class Post:
     def __init__(self, post_id: int, user_id: int, title: str, body: str) -> None:
         self.user_id = user_id
@@ -102,12 +102,12 @@ def main() -> None:
     # Initialize data service
     data_service: DataService = DataService(client=api_client)
 
-    # Fetch and print posts
+    # Fetch posts and print the first one
     print("Fetching Posts...")
     posts: List[Post] = data_service.get_posts()
     print(posts[0])
 
-    # Fetch and print users
+    # Fetch users and print the first one
     print("\nFetching Users...")
     users: List[User] = data_service.get_users()
     print(users[0])

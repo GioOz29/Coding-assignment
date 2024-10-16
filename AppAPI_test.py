@@ -95,6 +95,7 @@ def test_get_users_success(data_service: DataService, requests_mock: requests_mo
     ("posts", MOCK_POSTS, 2),
     ("users", MOCK_USERS, 2)
 ])
+
 def test_fetch_data_parametrized(api_client: APIClient, requests_mock: requests_mock.Mocker, endpoint: str, mock_data: List[dict], expected_count: int) -> None:
     requests_mock.get(f"https://jsonplaceholder.typicode.com/{endpoint}", json=mock_data)
     data = api_client.fetch_data(endpoint)
