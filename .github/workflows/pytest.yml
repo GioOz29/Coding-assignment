@@ -31,7 +31,7 @@ jobs:
       - name: Run tests with pytest
         run: |
           source .venv/bin/activate
-          pytest --cov=task --cov-report=term-missing
+          pytest --cov=task --cov-report=xml
 
       # Upload coverage results
       - name: Upload coverage report
