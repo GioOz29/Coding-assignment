@@ -1,8 +1,12 @@
-name: Run Pytest
+name: Run Pytest and Generate Coverage Report
 
-# Trigger manually via GitHub Actions UI
+# Trigger manually via GitHub Actions UI or on push to master/main
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
 
 jobs:
   test:
@@ -31,10 +35,20 @@ jobs:
       - name: Run tests with pytest
         run: |
           source .venv/bin/activate
-          pytest --cov=task --cov-report=xml
+          pytest --cov=task --cov-report=xml --junitxml=report.xml
 
-      # Upload coverage results
-      - name: Upload coverage report
+      # Upload coverage and test result artifacts
+      - name: Upload test results and coverage
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: |
+            coverage.xml
+            report.xml
+          retention-days: 7
+
+      # Display completion message
+      - name: Finalize
         if: success()
         run: |
-          echo "Tests and coverage report complete."
+          echo "Tests, coverage report, and artifacts uploaded."
