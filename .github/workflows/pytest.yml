@@ -7,10 +7,14 @@ on:
     branches:
       - master
       - main
+  pull_request:
+    branches:
+        - master
+        - main
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       # Checkout the repository code
@@ -34,7 +38,6 @@ jobs:
       # Run pytest with coverage
       - name: Run tests with pytest
         run: |
-          source .venv/bin/activate
           pytest --cov=task --cov-report=xml --junitxml=report.xml
 
       # Upload coverage and test result artifacts
